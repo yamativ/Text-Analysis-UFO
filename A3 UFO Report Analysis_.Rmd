@@ -37,7 +37,7 @@ library(topicmodels)
 ##########################################
 ## Data massage
 ##########################################
-ufo <- read.csv("/Users/takahiroyamada/Desktop/MBAN/20211116 Text Analysis/A3 Assingment/scrubbed.csv") %>%
+ufo <- read.csv("scrubbed.csv") %>%
   rename(text=comments) 
 ufo$datetime <-strptime(ufo$datetime, "%m/%d/%Y %H:%M")
 ufo <- ufo %>% separate(datetime, c("date", "time"), sep=" ") 
