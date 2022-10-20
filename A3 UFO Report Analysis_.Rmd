@@ -37,7 +37,7 @@ library(topicmodels)
 ##########################################
 ## Data massage
 ##########################################
-ufo <- read.csv("scrubbed.csv") %>%
+ufo <- read.csv("/Users/takahiroyamada/Desktop/MBAN/20211116 Text Analysis/A3 Assingment/scrubbed.csv") %>%
   rename(text=comments) 
 ufo$datetime <-strptime(ufo$datetime, "%m/%d/%Y %H:%M")
 ufo <- ufo %>% separate(datetime, c("date", "time"), sep=" ") 
@@ -384,8 +384,8 @@ Next, I tried to run the text analysis with the famous Roswell Report written by
 ## Roswell Report
 ####################################################################################
 ####################################################################################
-setwd("AFD-101201-038.pdf")
-nm <- list.files(path="AFD-101201-038.pdf")
+setwd("/Users/takahiroyamada/Desktop/MBAN/20211116 Text Analysis/A3 Assingment/Roswell")
+nm <- list.files(path="/Users/takahiroyamada/Desktop/MBAN/20211116 Text Analysis/A3 Assingment/Roswell")
 my_pdf_text <- do.call(rbind, lapply(nm, function(x) pdf_text(x))) %>% t() 
 colnames(my_pdf_text) <- c("text")
 my_pdf <- data.frame(line=1:994, text=my_pdf_text)
